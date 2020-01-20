@@ -1,0 +1,111 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "storageAccounts_gen2_name": {
+        "type": "string"
+      },
+      "location": {
+            "type": "string",
+            "allowedValues": [
+                "East US 2",
+                "Central US",
+                "North Europe",
+                "West Europe"
+            ],
+            "defaultValue": "East US 2",
+            "metadata": {
+                "description": "The location in which to create the Data Lake Store account."
+            }
+        }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-04-01",
+        "name": "[parameters('storageAccounts_gen2_name')]",
+        "location": "[parameters('location')]",
+        "tags": {
+          "DeptName": "Rx Renewal",
+          "LOB": "RxR",
+          "Deployer": "manoj.x.sharma@walgreens.com",
+          "DeployDate": "9/15/2019",
+          "EnvType": "Non-Production",
+          "Sensitivity": "Non-Sensitive",
+          "SenType": "Not Applicable"
+        },
+        "sku": {
+          "name": "Standard_RAGRS",
+          "tier": "Standard"
+        },
+        "kind": "StorageV2",
+        "properties": {
+          "isHnsEnabled": true,
+          "networkAcls": {
+            "bypass": "AzureServices",
+            "virtualNetworkRules": [],
+            "ipRules": [],
+            "defaultAction": "Allow"
+          },
+          "supportsHttpsTrafficOnly": true,
+          "encryption": {
+            "services": {
+              "file": {
+                "enabled": true
+              },
+              "blob": {
+                "enabled": true
+              }
+            },
+            "keySource": "Microsoft.Storage"
+          },
+          "accessTier": "Hot"
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(parameters('storageAccounts_gen2_name'), '/default')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_gen2_name'))]"
+        ],
+        "sku": {
+          "name": "Standard_RAGRS"
+        },
+        "properties": {
+          "cors": {
+            "corsRules": []
+          },
+          "deleteRetentionPolicy": {
+            "enabled": false
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(parameters('storageAccounts_gen2_name'), '/default/1-freelancer')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_gen2_name'), 'default')]",
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_gen2_name'))]"
+        ],
+        "properties": {
+          "publicAccess": "None"
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(parameters('storageAccounts_gen2_name'), '/default/2-freelancer')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccounts_gen2_name'), 'default')]",
+          "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_gen2_name'))]"
+        ],
+        "properties": {
+          "publicAccess": "None"
+        }
+      }
+    ],
+    "variables": {},
+    "outputs": {}
+  }

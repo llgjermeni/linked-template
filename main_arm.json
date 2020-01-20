@@ -1,0 +1,100 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {
+        "templateBaseUrl": "[deployment().properties.templateLink.uri]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "AdlsGen1Template",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(variables('templateBaseUrl'),'/azure_adls_gen1_arm/adls_gen1_arm.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "uri": {
+                        "value": "[uri(variables('templateBaseUrl'), '/azure_adls_gen1_arm/adls_gen1_arm.parameters.json')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "AdlsGen2Template",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(variables('templateBaseUrl'), '/azure_adls_gen2_arm/adls_gen2_arm.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "uri": {
+                        "value": "[uri(variables('templateBaseUrl'), '/azure_adls_gen2_arm/adls_gen2_arm.parameters.json')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "DatabrickTemplate",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(variables('templateBaseUrl'), '/azure_databrick_arm/databrick_arm.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "uri": {
+                        "value": "[uri(variables('templateBaseUrl'), '/azure_databrick_arm/databrick_arm.parameters.json')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "DatafactoryTemplate",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(variables('templateBaseUrl'), '/azure_datafactory_arm/datafactory_arm.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "uri": {
+                        "value": "[uri(variables('templateBaseUrl'), '/azure_datafactory_arm/datafactory_arm.parameters.json')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "KeyTemplate",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(variables('templateBaseUrl'), '/azure_keyvault_arm/keyvault_arm.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "uri": {
+                        "value": "[uri(variables('templateBaseUrl'), '/azure_keyvault_arm/keyvault_arm.parameters.json')]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+    },
+    "functions": [
+    ]
+}

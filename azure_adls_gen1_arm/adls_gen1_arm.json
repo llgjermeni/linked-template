@@ -1,0 +1,47 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "dtlake-name": {
+        "type": "string"
+      },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "East US 2",
+                "Central US",
+                "North Europe",
+                "West Europe"
+            ],
+            "defaultValue": "East US 2",
+            "metadata": {
+                "description": "The location in which to create the Data Lake Store account."
+            }
+        }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.DataLakeStore/accounts",
+        "apiVersion": "2016-11-01",
+        "name": "[parameters('dtlake-name')]",
+        "location": "[parameters('location')]",
+        "tags": {
+          "DeptName": "Rx Renewal",
+          "LOB": "RxR",
+          "Deployer": "manoj.x.sharma@walgreens.com",
+          "DeployDate": "9/15/2019",
+          "EnvType": "Non-Production",
+          "Sensitivity": "Non-Sensitive",
+          "SenType": "Not Applicable"
+        },
+        "properties": {
+          "newTier": "Consumption",
+          "encryptionState": "Enabled",
+          "encryptionConfig": {
+            "type": "ServiceManaged"
+          }
+        }
+      }
+    ],
+    "outputs": {}
+  }

@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "workspaceName": {
+        "value": null
+      },
+      "location": {
+        "value": null
+      },
+      "tier": {
+        "value": "premium"
+      },
+      "vnetName": {
+        "value": "freelancer-vnet"
+      },
+      "vnetRG": {
+        "value": null
+      },
+      "vnetId": {
+        "value": null
+      },
+      "publicSubnetName": {
+        "value": "pb-subnet"
+      },
+      "publicSubnetCIDR": {
+        "value": "10.0.0.0/"
+      },
+      "privateSubnetName": {
+        "value": "pv-subnet"
+      },
+      "privateSubnetCIDR": {
+        "value": "10.0.0.1/"
+      }
+    }
+  }

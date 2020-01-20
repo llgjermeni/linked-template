@@ -1,0 +1,40 @@
+{
+ "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "factoryName": {
+        "type": "string",
+        "metadata": {
+          "description": "Data Factory name"
+        },
+        "defaultValue": "testmyadf"
+      },
+    "factoryLocation": {
+      "type": "string",
+      "defaultValue": "East US"
+    }
+    },
+    "resources": [
+      {
+      "name": "[parameters('factoryName')]",
+      "apiVersion": "2018-06-01",
+      "type": "Microsoft.DataFactory/factories",
+      "location": "[parameters('factoryLocation')]",
+      "identity": {
+          "type": "SystemAssigned"
+            },
+      "tags": {
+        "DeptName": "Rx Renewal",
+        "LOB": "RxR",
+        "Deployer": "manoj.x.sharma@walgreens.com",
+        "DeployDate": "9/15/2019",
+        "EnvType": "Non-Production",
+        "Sensitivity": "Non-Sensitive",
+        "SenType": "Not Applicable"
+      },
+      "properties": {}
+      }
+    ]
+}
+  
+  
