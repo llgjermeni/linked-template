@@ -4,7 +4,7 @@
     "parameters": {
       "dtlake-name": {
         "type": "string",
-        "defaultValue": "dt-free-gen1"
+        "defaultValue": "dtfreegenone"
       },
         "location": {
             "type": "string",
