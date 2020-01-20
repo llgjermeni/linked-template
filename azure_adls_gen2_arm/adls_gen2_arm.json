@@ -3,7 +3,8 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "storageAccounts_gen2_name": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "dt-free-gen2"
       },
       "location": {
             "type": "string",

@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "storageAccounts_gen2_name": {
-        "value": null
+        "value": "dt-free-gen2"
       }
     }
   }

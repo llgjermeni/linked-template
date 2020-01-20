@@ -3,7 +3,8 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "dtlake-name": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "dt-free-gen1"
       },
         "location": {
             "type": "string",

@@ -40,57 +40,6 @@
                     }
                 }
             }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "DatabrickTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(variables('templateBaseUrl'), '/azure_databrick_arm/databrick_arm.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "uri": {
-                        "value": "[uri(variables('templateBaseUrl'), '/azure_databrick_arm/databrick_arm.parameters.json')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "DatafactoryTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(variables('templateBaseUrl'), '/azure_datafactory_arm/datafactory_arm.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "uri": {
-                        "value": "[uri(variables('templateBaseUrl'), '/azure_datafactory_arm/datafactory_arm.parameters.json')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "KeyTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(variables('templateBaseUrl'), '/azure_keyvault_arm/keyvault_arm.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "uri": {
-                        "value": "[uri(variables('templateBaseUrl'), '/azure_keyvault_arm/keyvault_arm.parameters.json')]"
-                    }
-                }
-            }
         }
     ],
     "outputs": {
