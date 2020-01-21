@@ -4,11 +4,11 @@
     "parameters": {
         "dtlake-gen1-rg": {
             "type": "string",
-            "defaultValue": "dtlake-gen1-rg"
+            "defaultValue": ""
         },
         "datafactory-rg": {
             "type": "string",
-            "defaultValue": "datafactory-rg"
+            "defaultValue": ""
         }
     },
     "variables": {
@@ -20,7 +20,7 @@
             "apiVersion": "2017-05-10",
             "name": "AdlsGen1Template",
             "resourceGroup":"[parameters('dtlake-gen1-rg')]",
-            "location":"[resourceGroup().location]",
+            // "location":"[resourceGroup().location]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -38,7 +38,7 @@
             "apiVersion": "2017-05-10",
             "name": "DatafactoryTemplate",
             "resourceGroup":"[parameters('datafactory-rg')]",
-            "location":"[resourceGroup().location]",
+            // "location":"[resourceGroup().location]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
