@@ -12,10 +12,9 @@
                 "East US 2",
                 "Central US",
                 "North Europe",
-                "West Europe",
-                "West US"
+                "West Europe"
             ],
-            "defaultValue": "West US",
+            "defaultValue": "East US 2",
             "metadata": {
                 "description": "The location in which to create the Data Lake Store account."
             }
