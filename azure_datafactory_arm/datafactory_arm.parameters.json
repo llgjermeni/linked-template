@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "factoryName": {
-        "value": "testmyadffree"
+        "value": "myadffree"
       },
       "factoryLocation":{  
           "value":"East US"

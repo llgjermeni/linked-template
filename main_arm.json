@@ -2,12 +2,14 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        // "_artifactsLocation": {
-        //     "type": "string"
-        // },
-        // "_artifactsLocationSasToken": {
-        //     "type": "securestring"
-        // }
+        "dtlake-gen1-rg": {
+            "type": "string",
+            "defaultValue": "dtlake-gen1-rg"
+        },
+        "datafactory-rg": {
+            "type": "string",
+            "defaultValue": "datafactory-rg"
+        }
     },
     "variables": {
         // "adls-gen1-Folder": "azure_adls_gen1_arm",
@@ -23,15 +25,16 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
             "name": "AdlsGen1Template",
+            "resourceGroup":"[parameters('dtlake-gen1-rg')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri":"https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_adls_gen1_arm/adls_gen1_arm.json",
+                    "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_adls_gen1_arm/adls_gen1_arm.json",
                     // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen1-Folder'), '/', variables('adls-gen1-FileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parametersLink": {
-                    "uri":"https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_adls_gen1_arm/adls_gen1_arm.parameters.json",
+                    "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_adls_gen1_arm/adls_gen1_arm.parameters.json",
                     // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen1-Folder'), '/', variables('adls-gen1-ParametersFileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 }
@@ -41,15 +44,16 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
             "name": "DatafactoryTemplate",
+            "resourceGroup":"[parameters('datafactory-rg')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri":"https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_datafactory_arm/datafactory_arm.json",
+                    "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_datafactory_arm/datafactory_arm.json",
                     // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen2-Folder'), '/', variables('adls-gen2-FileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parametersLink": {
-                    "uri":"https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_datafactory_arm/datafactory_arm.parameters.json",
+                    "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_datafactory_arm/datafactory_arm.parameters.json",
                     // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen2-Folder'), '/', variables('adls-gen2-ParametersFileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 }

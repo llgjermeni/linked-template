@@ -7,7 +7,7 @@
         "metadata": {
           "description": "Data Factory name"
         },
-        "defaultValue": "testmyadffree"
+        "defaultValue": "myadffree"
       },
     "factoryLocation": {
       "type": "string",
