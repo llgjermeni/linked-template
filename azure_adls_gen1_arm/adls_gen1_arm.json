@@ -5,28 +5,28 @@
       "dtlake-name": {
         "type": "string",
         "defaultValue": "dtgenone"
-      },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "East US 2",
-                "Central US",
-                "North Europe",
-                "West Europe",
-                "West US"
-            ],
-            "defaultValue": "West US",
-            "metadata": {
-                "description": "The location in which to create the Data Lake Store account."
-            }
-        }
+      }
+      //   "location": {
+      //       "type": "string",
+      //       "allowedValues": [
+      //           "East US 2",
+      //           "Central US",
+      //           "North Europe",
+      //           "West Europe",
+      //           "West US"
+      //       ],
+      //       "defaultValue": "West US",
+      //       "metadata": {
+      //           "description": "The location in which to create the Data Lake Store account."
+      //       }
+      //   }
     },
     "resources": [
       {
         "type": "Microsoft.DataLakeStore/accounts",
         "apiVersion": "2016-11-01",
         "name": "[parameters('dtlake-name')]",
-        "location": "[parameters('location')]",
+        // "location": "[parameters('location')]",
         "tags": {
           "DeptName": "Rx Renewal",
           "LOB": "RxR",

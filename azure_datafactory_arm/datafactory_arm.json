@@ -8,18 +8,18 @@
           "description": "Data Factory name"
         },
         "defaultValue": "myadffree"
-      },
-    "factoryLocation": {
-      "type": "string",
-      "defaultValue": "West US"
-    }
+      }
+    // "factoryLocation": {
+    //   "type": "string",
+    //   "defaultValue": "West US"
+    // }
     },
     "resources": [
       {
       "name": "[parameters('factoryName')]",
       "apiVersion": "2018-06-01",
       "type": "Microsoft.DataFactory/factories",
-      "location": "[parameters('factoryLocation')]",
+      // "location": "[parameters('factoryLocation')]",
       "identity": {
           "type": "SystemAssigned"
             },
