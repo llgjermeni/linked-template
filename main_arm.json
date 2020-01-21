@@ -12,12 +12,6 @@
         }
     },
     "variables": {
-        // "adls-gen1-Folder": "azure_adls_gen1_arm",
-        // "adls-gen1-FileName": "adls_gen1_arm.json",
-        // "adls-gen1-ParametersFileName": "adls_gen1_arm.parameters.json",
-        // "adls-gen2-Folder": "azure_adls_gen2_arm",
-        // "adls-gen2-FileName": "adls_gen2_arm.json",
-        // "adls-gen2-ParametersFileName": "adls_gen2_arm.parameters.json"
     },
 
     "resources": [
@@ -30,12 +24,10 @@
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_adls_gen1_arm/adls_gen1_arm.json",
-                    // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen1-Folder'), '/', variables('adls-gen1-FileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parametersLink": {
                     "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_adls_gen1_arm/adls_gen1_arm.parameters.json",
-                    // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen1-Folder'), '/', variables('adls-gen1-ParametersFileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 }
             }
@@ -49,12 +41,10 @@
                 "mode": "Incremental",
                 "templateLink": {
                     "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_datafactory_arm/datafactory_arm.json",
-                    // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen2-Folder'), '/', variables('adls-gen2-FileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parametersLink": {
                     "uri": "https://raw.githubusercontent.com/llgjermeni/linked-template/master/azure_datafactory_arm/datafactory_arm.parameters.json",
-                    // "uri": "[concat(parameters('_artifactsLocation'), '/', variables('adls-gen2-Folder'), '/', variables('adls-gen2-ParametersFileName'), parameters('_artifactsLocationSasToken'))]",
                     "contentVersion": "1.0.0.0"
                 }
             }

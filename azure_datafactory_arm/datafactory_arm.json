@@ -11,7 +11,7 @@
       },
     "factoryLocation": {
       "type": "string",
-      "defaultValue": "East US"
+      "defaultValue": "West US"
     }
     },
     "resources": [
